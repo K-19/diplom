@@ -1,3 +1,6 @@
 # Project exclude paths
 /target/
 .idea
+src/main/resources/markets.json
+src/main/resources/products.json
+src/main/resources/productsOld.json
