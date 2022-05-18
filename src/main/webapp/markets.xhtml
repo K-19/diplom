@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">#{marketsBean.name}</ui:define>
+
+    <ui:define name="viewname">Markets</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <div class="p-grid table-demo">
+                <div class="p-col-12">
+                    <div class="card">
+                        <p:dataTable widgetVar="customersDT2" var="market" value="#{marketsBean.markets}" selectionMode="single" reflow="true"
+                                     rowKey="#{market.id}" scrollable="true" scrollHeight="500" paginator="true" rows="10" paginatorPosition="bottom"
+                                     styleClass="ui-datatable-striped ui-datatable-sm ui-datatable-gridlines">
+                            <f:facet name="header">
+                                <div class="customers-table-header">
+                                    <span style="font-weight: bold">#{marketsBean.name}</span>
+
+                                    <span class="ui-input-icon-left filter-container">
+                                        <i class="pi pi-search"/>
+                                        <p:inputText id="globalFilter" onkeyup="PF('customersDT2').filter()" placeholder="Поиск"/>
+                                    </span>
+                                </div>
+                            </f:facet>
+                            <p:column headerText="Населённый пункт" sortBy="#{market.city}" filterBy="#{market.city}">
+                                <h:outputText value="#{market.city}" />
+                            </p:column>
+                            <p:column headerText="Адрес" sortBy="#{market.address}" filterBy="#{market.address}">
+                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{market.address}" />
+                            </p:column>
+                            <p:column headerText="Тип" sortBy="#{market.type}" filterBy="#{market.type}">
+                                <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{market.type}" />
+                            </p:column>
+                            <p:column headerText="Рабочее время" sortBy="#{market.workTime}" filterBy="#{market.workTime}">
+                                <h:outputText value="#{market.workTime}" />
+                            </p:column>
+                            <p:column headerText="">
+                                <div class="p-col-12 p-lg-12 p-md-12 button-container">
+                                    <p:commandButton styleClass="submitButton" id="assortButton" action="#{marketsBean.goToAssortment(market.id)}"
+                                                     value="Ассортимент" class="p-col-12"/>
+                                </div>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

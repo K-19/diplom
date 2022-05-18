@@ -1,0 +1,402 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Widgets</ui:define>
+
+    <ui:define name="viewname">Widgets</ui:define>
+
+    <ui:define name="content">
+        <h4>Reusable CSS widgets for your applications.</h4>
+
+        <div class="p-grid">
+            <div class="p-col-12">
+                <div class="card">
+                    <h4>Overview Boxes</h4>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-12 p-lg-4">
+                            <div class="widget-overview-box monthly-sales">
+                                <div class="overview-title">SALES</div>
+                                <i class="pi pi-arrow-circle-up"/>
+                                <div class="overview-numbers">
+                                    <strong>$ 22,650</strong>
+                                </div>
+                                <div class="overview-ratios">16% more than previous month</div>
+                                <p:graphicImage name="images/icon-sales.png" library="california-layout"/>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-12 p-lg-4">
+                            <div class="widget-overview-box monthly-views">
+                                <div class="overview-title">VIEWS
+                                    <i class="pi pi-arrow-circle-down"/>
+                                </div>
+                                <div class="overview-numbers">
+                                    <strong>6215</strong>/Day
+                                </div>
+                                <div class="overview-ratios">2% less than previous month</div>
+                                <p:graphicImage name="images/icon-views.png" library="california-layout"/>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-12 p-lg-4">
+                            <div class="widget-overview-box monthly-users">
+                                <div class="overview-title">USERS
+                                    <i class="pi pi-arrow-circle-up"/>
+                                </div>
+                                <div class="overview-numbers">
+                                    <strong>5288</strong>/Day
+                                </div>
+                                <div class="overview-ratios">9% more than previous month</div>
+                                <p:graphicImage name="images/icon-users.png" library="california-layout"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-col-12">
+                <div class="card">
+                    <h4>Stats Boxes</h4>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-6 p-lg-3">
+                            <div class="widget-stats">
+                                <div class="stats-icon">
+                                    <p:graphicImage name="images/icon-message.png" library="california-layout"
+                                                    styleClass="message-icon"/>
+                                </div>
+                                <div class="stats-numbers">150</div>
+                                <div class="stats-title">Unread Messages</div>
+                                <div class="stats-subtitle">You stared
+                                    <span>5</span> messages today
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-3">
+                            <div class="widget-stats">
+                                <div class="stats-icon">
+                                    <p:graphicImage name="images/icon-doc.png" library="california-layout"
+                                                    styleClass="doc-icon"/>
+                                </div>
+                                <div class="stats-numbers">532</div>
+                                <div class="stats-title">Files Synced</div>
+                                <div class="stats-subtitle">
+                                    <span>21%</span> more than yesterday
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-3">
+                            <div class="widget-stats">
+                                <div class="stats-icon">
+                                    <p:graphicImage name="images/icon-mark.png" library="california-layout"
+                                                    styleClass="mark-icon"/>
+                                </div>
+                                <div class="stats-numbers">450</div>
+                                <div class="stats-title">Check-ins</div>
+                                <div class="stats-subtitle">
+                                    <span>12%</span> less than yesterday
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-3">
+                            <div class="widget-stats">
+                                <div class="stats-icon">
+                                    <p:graphicImage name="images/icon-profile.png" library="california-layout"
+                                                    styleClass="profile-icon"/>
+                                </div>
+                                <div class="stats-numbers">974</div>
+                                <div class="stats-title">Users Online</div>
+                                <div class="stats-subtitle">
+                                    <span>35210</span> total page view today
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-col-12 p-md-12 p-lg-6">
+                <div class="widget-timeline card">
+                    <h4>Timeline</h4>
+                    <div class="timeline-wrapper">
+                        <div class="timeline-line"></div>
+                        <ul>
+                            <li class="odd">
+                                <div class="timeline-message">
+                                    <span class="love">Brenda Soto liked your post</span>
+                                </div>
+                                <div class="timeline-icon">
+                                    <p:graphicImage name="images/icon-love.png" library="california-layout"/>
+                                    <span class="timeline-time">6:12 am</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+
+                            <li class="even">
+                                <div class="timeline-icon">
+                                    <span>7:44 am</span>
+                                    <p:graphicImage name="images/icon-event.png" library="california-layout"/>
+                                </div>
+                                <div class="timeline-message">
+                                    <p:graphicImage name="images/bg-message2.png" library="california-layout"
+                                                    styleClass="event"/>
+                                    <span class="event">Unexpected event happened near San Mateo</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+
+                            <li class="odd">
+                                <div class="timeline-message">
+                                    <span class="checked">Warren Shaw finished Task #21</span>
+                                </div>
+                                <div class="timeline-icon">
+                                    <p:graphicImage name="images/icon-checked.png" library="california-layout"/>
+                                    <span>8:20 am</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+
+                            <li class="even">
+                                <div class="timeline-icon">
+                                    <span>2:12 pm</span>
+                                    <p:graphicImage name="images/icon-checked.png" library="california-layout"/>
+                                </div>
+                                <div class="timeline-message">
+                                    <span class="checked">John Swisher finished Task #66</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+
+                            <li>
+                                <div class="timeline-icon">
+
+
+                                </div>
+                                <div class="timeline-message">
+                                </div>
+                            </li>
+
+                            <li class="odd">
+                                <div class="timeline-icon">
+                                    <p:graphicImage name="images/icon-event.png" library="california-layout"/>
+                                    <span>2:58 am</span>
+                                </div>
+                                <div class="timeline-message">
+                                    <p:graphicImage name="images/bg-message1.png" library="california-layout"
+                                                    styleClass="event"/>
+                                    <span class="event">Unexpected event happened near Santa Rosa</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+
+                            <li class="even">
+                                <div class="timeline-icon">
+                                    <span>5:41 am</span>
+                                    <p:graphicImage name="images/icon-checked.png" library="california-layout"/>
+                                </div>
+                                <div class="timeline-message">
+                                    <span class="checked">John Swisher finished Task #66</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+
+                            <li class="odd">
+                                <div class="timeline-icon">
+                                    <p:graphicImage name="images/icon-event.png" library="california-layout"/>
+                                    <span>11:12 pm</span>
+                                </div>
+                                <div class="timeline-message">
+                                    <p:graphicImage name="images/bg-message.png" library="california-layout"
+                                                    styleClass="event"/>
+                                    <span class="event">Unexpected event happened near Vallejo</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-col-12 p-md-12 p-lg-6">
+                <div class="widget-chat card">
+                    <h4>Chat</h4>
+                    <ul>
+                        <li class="message-from">
+                            <div class="message-meta">
+                                <p:graphicImage name="images/avatar-dani.png" library="california-layout"/>
+                                <span class="name">Dani Daniel</span>
+                                <span class="time">27 mins ago</span>
+                            </div>
+                            <div class="message">
+                                    <span>Hey Micheal, I heard there is a task about unexpected event occured near San Mateo recently.
+                                        Want to collabrate?</span>
+                            </div>
+                        </li>
+
+                        <li class="message-own">
+                            <div class="message">
+                                    <span>I’m busy today but we can work on it on Sunday afternoon. Does that sounds good for you?
+                                    </span>
+                            </div>
+                            <div class="message-meta">
+                                <p:graphicImage name="images/avatar-micheal.png" library="california-layout"/>
+                                <span class="name">Micheal Evan</span>
+                                <span class="time">22 mins ago</span>
+                            </div>
+                        </li>
+
+                        <li class="message-from">
+                            <div class="message-meta">
+                                <p:graphicImage name="images/avatar-dani.png" library="california-layout"/>
+                                <span class="name">Dani Daniel</span>
+                                <span class="time">21 mins ago</span>
+                            </div>
+                            <div class="message">
+                                <span>OK! That sounds great. 👍 </span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="write-message">
+                        <i class="pi pi-paperclip"/>
+                        <input type="text"/>
+                    </div>
+                </div>
+
+
+                <div class="card widget-profile p-col-12" style="padding: 0">
+                    <p:graphicImage name="images/image-profile.png" library="california-layout"/>
+                    <div class="p-col-12" style="text-align: center">
+                        <p:graphicImage name="images/profile-avatar.png" library="california-layout"
+                                        styleClass="profile-avatar"/>
+                    </div>
+                    <div class="p-col-12" style="text-align: center">
+                        <span class="profile-name">#{userBean.user.fullName}</span>
+                        <span class="profile-role">#{userBean.user.role}</span>
+                    </div>
+                    <div class="p-col-12" style="text-align: center; margin-top: -50px">
+                        <p:commandButton type="button" value="Edit Profile"/>
+                    </div>
+                    <div class="p-col-12 p-grid">
+                        <div class="profile-statistics-panel p-col-4">
+                            <span class="profile-statistics">1098</span>
+                            <span class="statistics-title">Articles</span>
+                        </div>
+                        <div class="profile-statistics-panel p-col-4">
+                            <span class="profile-statistics">22,681</span>
+                            <span class="statistics-title">Followers</span>
+                        </div>
+                        <div class="profile-statistics-panel p-col-4">
+                            <span class="profile-statistics">880</span>
+                            <span class="statistics-title">Following</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-col-12 p-md-12 p-lg-4 ui-fluid">
+                <div class="widget-resolution-center card">
+                    <h4>Resolution Center</h4>
+                    <div class="p-grid">
+                        <div class="p-col-12" style="padding: 0 .5em">
+                            <p:outputLabel for="email" value="E-mail Address"/>
+                        </div>
+                        <div class="p-col-12">
+                            <p:inputText id="email" placeholder="E-mail Address"/>
+                        </div>
+                        <div class="p-col-12" style="padding: 0 .5em">
+                            <p:outputLabel for="message" value="Message"/>
+                        </div>
+                        <div class="p-col-12">
+                            <p:inputTextarea id="message" rows="5" placeholder="Write your message..."
+                                             autoResize="false"/>
+                        </div>
+                        <div class="p-col-12">
+                            <p:commandButton type="button" value="Send"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-12 p-lg-4">
+                <div class="widget-team card">
+                    <h4>Team</h4>
+                    <ul>
+                        <li>
+                            <p:graphicImage name="images/avatar-john.png" library="california-layout"/>
+                            <div class="team-box">
+                                <span class="team-member">John Swisher</span>
+                                <span class="team-member-role">Design</span>
+                            </div>
+                            <a href="#">
+                                <i class="pi pi-github"/>
+                            </a>
+                            <a href="#">
+                                <i class="pi pi-twitter"/>
+                            </a>
+                        </li>
+                        <li>
+                            <p:graphicImage name="images/avatar-warren.png" library="california-layout"/>
+                            <div class="team-box">
+                                <span class="team-member">Warren Shaw</span>
+                                <span class="team-member-role">Development</span>
+                            </div>
+                            <a href="#">
+                                <i class="pi pi-github"/>
+                            </a>
+                            <a href="#">
+                                <i class="pi pi-twitter"/>
+                            </a>
+                        </li>
+                        <li>
+                            <p:graphicImage name="images/avatar-brenda.png" library="california-layout"/>
+                            <div class="team-box">
+                                <span class="team-member">Brenda Soto</span>
+                                <span class="team-member-role">Development</span>
+                            </div>
+                            <a href="#">
+                                <i class="pi pi-github"/>
+                            </a>
+                            <a href="#">
+                                <i class="pi pi-twitter"/>
+                            </a>
+                        </li>
+                        <li>
+                            <p:graphicImage name="images/avatar-arlene.png" library="california-layout"/>
+                            <div class="team-box">
+                                <span class="team-member">Arlene Welch</span>
+                                <span class="team-member-role">Business</span>
+                            </div>
+                            <a href="#">
+                                <i class="pi pi-github"/>
+                            </a>
+                            <a href="#">
+                                <i class="pi pi-twitter"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="p-col-12 p-lg-4">
+                <div class="widget-pricing-box pricing-beginner">
+                    <div class="p-col-12 pricing-header">BEGINNER</div>
+                    <div class="p-col-12 pricing-subheader">
+                        <span class="price">$9</span>
+                        <span class="duration">PER MONTH</span>
+                    </div>
+                    <div class="p-col-12 pricing-content">
+                        <span>All Basic Features</span>
+                        <span>Responsive</span>
+                        <span>Push Messages</span>
+                    </div>
+                    <div class="p-col-12">
+                        <p:commandButton type="button" value="Buy Now"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </ui:define>
+
+</ui:composition>

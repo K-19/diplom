@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Отчёт о проведенном анализе</ui:define>
+
+    <ui:define name="viewname">reportPage</ui:define>
+
+    <ui:define name="content">
+        <div class="p-col-12 p-md-12">
+            <div class="card">
+                <h5>Отчёт по результатам анализа ассортимента</h5>
+                <h:form>
+                    <p:tabView activeIndex="#{param.i}">
+                        <p:tab title="ABC-анализ" rendered="#{assortmentBean.abcResult ne null}">
+                            <ui:include src="WEB-INF/abc.xhtml"/>
+                        </p:tab>
+                        <p:tab title="XYZ-анализ" rendered="#{assortmentBean.xyzResult ne null}">
+                            <ui:include src="WEB-INF/xyz.xhtml"/>
+                        </p:tab>
+                        <p:tab title="Совмещенный ABC-XYZ" rendered="#{assortmentBean.abcXyzResult ne null}">
+                            <ui:include src="WEB-INF/abcxyz.xhtml"/>
+                        </p:tab>
+                    </p:tabView>
+                </h:form>
+            </div>
+        </div>
+
+
+        <p:panel >
+
+        </p:panel>
+    </ui:define>
+
+</ui:composition>

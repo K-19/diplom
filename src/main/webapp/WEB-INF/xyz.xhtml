@@ -1,0 +1,62 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pc="http://primefaces.org/california"
+        xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <div class="p-grid table-demo">
+        <div class="p-col-12">
+            <div class="p-col">
+                <div class="card">
+                    <p:dataTable widgetVar="customersDT3" var="data" value="#{assortmentBean.xyzResult.entryList}" selectionMode="single" reflow="true"
+                                 rowKey="#{data.variation}" scrollable="true" scrollHeight="500" paginator="true" rows="10" paginatorPosition="bottom"
+                                 styleClass="ui-datatable-striped ui-datatable-sm ui-datatable-gridlines">
+                        <f:facet name="header">
+                            <div class="customers-table-header">
+                                <span style="font-weight: bold">#{assortmentBean.xyzResult.name} по товарам</span>
+
+                                <span class="ui-input-icon-left filter-container">
+                                                    <i class="pi pi-search"/>
+                                                    <p:inputText id="globalFilter" onkeyup="PF('customersDT3').filter()" placeholder="Поиск"/>
+                                                </span>
+                            </div>
+                        </f:facet>
+                        <p:column>
+                            <p:graphicImage value="#{data.product.img}" width="100" height="100" stream="false"/>
+                        </p:column>
+                        <p:column headerText="Название" sortBy="#{data.product.name}" filterBy="#{data.product.name}">
+                            <h:outputText value="#{data.product.name}" />
+                        </p:column>
+
+                        <p:column headerText="#{assortmentBean.xyzResult.months[19]}" sortBy="#{data.amountsSales[19]}" filterBy="#{data.amountsSales[19]}">
+                            <h:outputText value="#{data.amountsSales[19]}" />
+                        </p:column>
+                        <p:column headerText="#{assortmentBean.xyzResult.months[20]}" sortBy="#{data.amountsSales[20]}" filterBy="#{data.amountsSales[20]}">
+                            <h:outputText value="#{data.amountsSales[20]}" />
+                        </p:column>
+                        <p:column headerText="#{assortmentBean.xyzResult.months[21]}" sortBy="#{data.amountsSales[21]}" filterBy="#{data.amountsSales[21]}">
+                            <h:outputText value="#{data.amountsSales[21]}" />
+                        </p:column>
+                        <p:column headerText="#{assortmentBean.xyzResult.months[22]}" sortBy="#{data.amountsSales[22]}" filterBy="#{data.amountsSales[22]}">
+                            <h:outputText value="#{data.amountsSales[22]}" />
+                        </p:column>
+                        <p:column headerText="#{assortmentBean.xyzResult.months[23]}" sortBy="#{data.amountsSales[23]}" filterBy="#{data.amountsSales[23]}">
+                            <h:outputText value="#{data.amountsSales[23]}" />
+                        </p:column>
+
+
+                        <p:column headerText="Коэффициент вариации" sortBy="#{data.variation}" filterBy="#{data.variationString}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.variationString}" />
+                        </p:column>
+                        <p:column headerText="Группа" sortBy="#{data.group}" filterBy="#{data.group.name()}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.group.name()}" />
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ui:composition>

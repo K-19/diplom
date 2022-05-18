@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+    </f:facet>
+    <title>Diplom Project</title>
+</h:head>
+
+<div class="login-topbar">
+    <h:link outcome="/dashboard" styleClass="logo">
+        <p:graphicImage name="images/logo.png" library="california-layout"/>
+    </h:link>
+</div>
+<p:graphicImage styleClass="login-image" name="images/image-login.png" library="california-layout"/>
+
+<h:body styleClass="login-body #{guestPreferences.inputStyleClass}">
+    <div class="login-panel ui-fluid">
+        <div class="p-grid">
+            <div class="p-col-12 login-icon-container">
+                <p:graphicImage styleClass="login-icon" name="images/icon-login.png" library="california-layout"/>
+            </div>
+            <div class="p-col-12 p-lg-12 p-md-12 logo-container">
+                <span class="login-summary">Добро пожаловать!</span>
+                <div class="login-detail">
+                    <span>Для входа в систему укажите, пожалуйста, ваш логин и пароль</span>
+                </div>
+            </div>
+            <h:form id="loginForm">
+                <p:growl id="growl" showDetail="true" />
+                <div class="p-col-12 p-lg-12 p-md-12">
+                    <h:outputText value="Логин"/>
+                    <p:inputText placeholder="Email" value="#{userBean.login}"/>
+                </div>
+                <div class="p-col-12 p-lg-12 p-md-12">
+                    <h:outputText value="Пароль"/>
+                    <p:password placeholder="Password" feedback="false" value="#{userBean.stringPassword}"/>
+                </div>
+                <div class="p-col-12 p-lg-12 p-md-12 chkbox-container">
+                    <p:selectBooleanCheckbox id="remember-me" value="#{userBean.rememberMe}"/>
+                    <p:outputLabel for="remember-me" value="Запомнить меня"/>
+                    <a href="#">Сбросить пароль</a>
+                </div>
+                <div class="p-col-12 p-lg-12 p-md-12 button-container">
+                    <p:commandButton styleClass="submitButton" id="userLogin" action="#{userBean.signIn}"
+                                     value="Войти" update="loginForm" class="p-col"/>
+                </div>
+            </h:form>
+        </div>
+    </div>
+    <h:outputStylesheet name="css/primeicons.css" library="california-layout"/>
+    <h:outputStylesheet name="css/primeflex.min.css" library="california-layout"/>
+    <h:outputStylesheet name="css/layout-#{guestPreferences.theme}.css" library="california-layout"/>
+</h:body>
+
+</html>

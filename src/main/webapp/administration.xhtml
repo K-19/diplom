@@ -1,0 +1,80 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <p:importEnum type="org.primefaces.california.model.entity.UserType" var="UserType"/>
+
+    <ui:define name="title">Администрирование</ui:define>
+
+    <ui:define name="viewname">Administration</ui:define>
+
+    <ui:define name="head">
+        <h:outputScript name="js/chart.js" library="demo"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="p-grid">
+            <div class="p-col-12 p-md-6">
+                <div class="card ui-fluid">
+                    <h:form id="regForm">
+                        <p:growl id="growl" showDetail="true" />
+                        <h5>Регистрация нового пользователя</h5>
+                        <div class="p-formgrid p-grid">
+                            <div class="p-field p-col">
+                                <p:outputLabel for="name">Имя</p:outputLabel>
+                                <p:inputText id="name" type="text" value="#{adminBean.registeredUser.name}"/>
+                            </div>
+                            <div class="p-field p-col">
+                                <p:outputLabel for="surname">Фамилия</p:outputLabel>
+                                <p:inputText id="surname" type="text" value="#{adminBean.registeredUser.surname}"/>
+                            </div>
+                        </div>
+                        <div class="p-formgrid p-grid">
+                            <div class="p-field p-col">
+                                <p:outputLabel for="login">Логин</p:outputLabel>
+                                <p:inputText id="login" type="text" value="#{adminBean.registeredUser.login}"/>
+                            </div>
+                            <div class="p-field p-col">
+                                <p:outputLabel for="patronymic">Отчество</p:outputLabel>
+                                <p:inputText id="patronymic" type="text" value="#{adminBean.registeredUser.patronymic}"/>
+                            </div>
+                        </div>
+                        <div class="p-formgrid p-grid">
+                            <div class="p-field p-col">
+                                <p:outputLabel for="pass1">Пароль</p:outputLabel>
+                                <p:inputText id="pass1" type="text" value="#{adminBean.regUserPassword}"/>
+                            </div>
+                            <div class="p-field p-col">
+                                <p:outputLabel for="pass2">Подтвердите пароль</p:outputLabel>
+                                <p:inputText id="pass2" type="text" value="#{adminBean.regUserConfirmPassword}"/>
+                            </div>
+                        </div>
+                        <div class="p-formgrid p-grid">
+                            <div class="p-field p-col">
+                                <p:outputLabel for="@next" styleClass="p-d-block" value="Дата рождения"/>
+                                <p:datePicker showIcon="true" required="true" value="#{adminBean.registeredUser.birthday}"/>
+                            </div>
+                            <div class="p-field p-col">
+                                <p:outputLabel for="state" value="Роль" />
+                                <p:selectOneMenu id="state" value="#{adminBean.regUserType}">
+                                    <f:selectItem itemLabel="Администратор" itemValue="ADMIN" />
+                                    <f:selectItem itemLabel="Директор" itemValue="DIRECTOR" />
+                                    <f:selectItem itemLabel="Менеджер" itemValue="MANAGER"/>
+                                </p:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-lg-12 p-md-12 button-container">
+                            <p:commandButton styleClass="submitButton" id="userRegistration" action="#{adminBean.registerNewUser}"
+                                             value="Зарегистрировать нового пользователя" icon="pi pi-user-plus"
+                                             update="regForm"/>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

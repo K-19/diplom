@@ -1,0 +1,73 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="WEB-INF/template.xhtml">
+
+    <ui:define name="title">#{assortmentBean.assortmentName}</ui:define>
+
+    <ui:define name="viewname">Assortment</ui:define>
+
+    <ui:define name="head">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <div class="p-grid table-demo">
+                <div class="p-col-12">
+                    <div class="p-col">
+                        <div class="card">
+                            <p:selectManyButton value="#{assortmentBean.analysesString}" styleClass="p-mr-2 p-d-inline">
+                                <f:selectItem itemLabel="ABC-анализ" itemValue="ABC" />
+                                <f:selectItem itemLabel="XYZ-анализ" itemValue="XYZ" />
+                            </p:selectManyButton>
+                            <div class="p-lg-12 p-md-12 button-container p-d-inline">
+                                <p:commandButton styleClass="submitButton" id="assortButton" action="#{assortmentBean.startAnalysis}"
+                                                 value="Провести анализ ассортимента"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-col">
+                        <div class="card">
+                            <p:dataTable widgetVar="customersDT2" var="assortment" value="#{assortmentBean.products}" selectionMode="single" reflow="true"
+                                         rowKey="#{assortment.id}" scrollable="true" scrollHeight="500" paginator="true" rows="10" paginatorPosition="bottom"
+                                         styleClass="ui-datatable-striped ui-datatable-sm ui-datatable-gridlines">
+                                <f:facet name="header">
+                                    <div class="customers-table-header">
+                                        <span style="font-weight: bold">#{assortmentBean.assortmentName}</span>
+
+                                        <span class="ui-input-icon-left filter-container">
+                                            <i class="pi pi-search"/>
+                                            <p:inputText id="globalFilter" onkeyup="PF('customersDT2').filter()" placeholder="Поиск"/>
+                                        </span>
+                                    </div>
+                                </f:facet>
+                                <p:column>
+                                    <p:graphicImage value="#{assortment.product.img}" width="100" height="100" stream="false"/>
+                                </p:column>
+                                <p:column headerText="Название" sortBy="#{assortment.product.name}" filterBy="#{assortment.product.name}">
+                                    <h:outputText value="#{assortment.product.name}" />
+                                </p:column>
+                                <p:column headerText="Тип" sortBy="#{assortment.product.type}" filterBy="#{assortment.product.type}">
+                                    <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{assortment.product.type}" />
+                                </p:column>
+                                <p:column headerText="Страна" sortBy="#{assortment.product.country}" filterBy="#{assortment.product.country}">
+                                    <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{assortment.product.country}" />
+                                </p:column>
+                                <p:column headerText="Цена" sortBy="#{assortment.product.price}" filterBy="#{assortment.product.price}">
+                                    <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{assortment.product.price}" />
+                                </p:column>
+                                <p:column headerText="Количество" sortBy="#{assortment.amount}" filterBy="#{assortment.amount}">
+                                    <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{assortment.amount}" />
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

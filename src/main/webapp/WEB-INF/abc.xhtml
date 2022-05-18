@@ -1,0 +1,81 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pc="http://primefaces.org/california">
+    <div class="p-grid table-demo">
+        <div class="p-col-12">
+            <div class="p-col">
+                <div class="card">
+                    <p:dataTable widgetVar="customersDT1" var="all" value="#{assortmentBean.abcResultAsList}" reflow="true"
+                                 rowKey="#{all.allRevenue}" styleClass="ui-datatable-striped ui-datatable-sm ui-datatable-gridlines">
+                        <f:facet name="header">
+                            <div class="customers-table-header">
+                                <span style="font-weight: bold">Итого по результату ABC-анализа</span>
+                            </div>
+                        </f:facet>
+                        <p:column headerText="Затраты">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{all.costString}" />
+                        </p:column>
+                        <p:column headerText="Выручка">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{all.revenueString}" />
+                        </p:column>
+                        <p:column headerText="Маржинальная прибыль">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{all.marginString}" />
+                        </p:column>
+                        <p:column headerText="Рентабильность">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{all.profitabilityString}" />
+                        </p:column>
+                    </p:dataTable>
+                    <p:dataTable widgetVar="customersDT2" var="data" value="#{assortmentBean.abcResult.entries}" selectionMode="single" reflow="true"
+                                 rowKey="#{data.margin}" scrollable="true" scrollHeight="500" paginator="true" rows="10" paginatorPosition="bottom"
+                                 styleClass="ui-datatable-striped ui-datatable-sm ui-datatable-gridlines">
+                        <f:facet name="header">
+                            <div class="customers-table-header">
+                                <span style="font-weight: bold">#{assortmentBean.abcResult.name} по товарам</span>
+
+                                <span class="ui-input-icon-left filter-container">
+                                                    <i class="pi pi-search"/>
+                                                    <p:inputText id="globalFilter" onkeyup="PF('customersDT2').filter()" placeholder="Поиск"/>
+                                                </span>
+                            </div>
+                        </f:facet>
+                        <p:column width="70">
+                            <p:graphicImage value="#{data.product.img}" width="60" height="60" stream="false"/>
+                        </p:column>
+                        <p:column width="270" headerText="Название" sortBy="#{data.product.name}" filterBy="#{data.product.name}">
+                            <h:outputText value="#{data.product.name}" />
+                        </p:column>
+                        <p:column headerText="Цена" sortBy="#{data.product.priceString}" filterBy="#{data.product.priceString}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.product.priceString}" />
+                        </p:column>
+                        <p:column headerText="Затраты" sortBy="#{data.cost}" filterBy="#{data.costString}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.costString}" />
+                        </p:column>
+                        <p:column headerText="Выручка" sortBy="#{data.revenue}" filterBy="#{data.revenueString}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.revenueString}" />
+                        </p:column>
+                        <p:column headerText="Маржинальная прибыль" sortBy="#{data.margin}" filterBy="#{data.marginString}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.marginString}" />
+                        </p:column>
+                        <p:column headerText="Рентабильность" sortBy="#{data.profitability}" filterBy="#{data.profitabilityString}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.profitabilityString}" />
+                        </p:column>
+                        <p:column headerText="Доля в выручке" sortBy="#{data.shareInRevenue}" filterBy="#{data.shareInRevenueString}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.shareInRevenueString}" />
+                        </p:column>
+                        <p:column headerText="Доля в маржинальной прибыли" sortBy="#{data.shareInMargin}" filterBy="#{data.shareInMarginString}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.shareInMarginString}" />
+                        </p:column>
+                        <p:column headerText="Группа" sortBy="#{data.group}" filterBy="#{data.group.name()}">
+                            <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{data.group.name()}" />
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ui:composition>
